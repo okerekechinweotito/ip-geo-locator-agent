@@ -24,7 +24,7 @@ export const IPGeoAgent = new Agent({
 
       The approximate coordinates are [Latitude] (latitude) and [Longitude] (longitude). The country borders [Borders]. Here is the country's flag: [Flag]"
 
-      Remember to always use the IPGeoTool to get the most accurate and up-to-date information.
+      Remember to always use the IPGeoTool to get the most accurate and up-to-date information. If multiple IP addresses are provided, please use the last one.
 `,
   model: "google/gemini-2.5-flash",
   tools: { IPGeoTool },
