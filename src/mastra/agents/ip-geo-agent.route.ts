@@ -129,7 +129,6 @@ export const a2aAgentRoute = registerApiRoute("/a2a/agent/:agentId", {
             },
           },
           artifacts,
-          history,
           kind: "task",
         },
       });
