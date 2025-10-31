@@ -80,16 +80,18 @@ export const a2aAgentRoute = registerApiRoute("/a2a/agent/:agentId", {
       ];
 
       // Add tool results as artifacts
-      if (response.toolResults && response.toolResults.length > 0) {
-        artifacts.push({
-          artifactId: randomUUID(),
-          name: "ToolResults",
-          parts: response.toolResults.map((result) => ({
-            kind: "data",
-            text: JSON.stringify(result),
-          })),
-        });
-      }
+     if (response.toolResults && response.toolResults.length > 0) {
+       artifacts.push({
+         artifactId: randomUUID(),
+         name: "ToolResults",
+         // @ts-ignore
+         parts: response.toolResults.map((result) => ({
+           kind: "data",
+           data: result,
+         })),
+       });
+     }
+
 
       // Build conversation history
       const history = [
