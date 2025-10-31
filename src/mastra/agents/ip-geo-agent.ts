@@ -28,9 +28,9 @@ export const IPGeoAgent = new Agent({
         - Borders
         - Flag 
 
-      Use the IPGeoTool to fetch current weather data.
+      Use the IPGeoTool to fetch geolocation details for an IP address.
 `,
-  model: "google/gemini-2.5-pro",
+  model: "google/gemini-2.5-flash",
   tools: { IPGeoTool },
   memory: new Memory({
     storage: new LibSQLStore({
