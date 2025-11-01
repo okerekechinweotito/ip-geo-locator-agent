@@ -56,14 +56,7 @@ export const a2aAgentRoute = registerApiRoute("/a2a/agent/:agentId", {
       // Convert A2A messages to Mastra format
       const mastraMessages = messagesList.map((msg) => ({
         role: msg.role,
-        content:
-          msg.parts
-            ?.map((part: any) => {
-              if (part.kind === "text") return part.text;
-              if (part.kind === "data") return JSON.stringify(part.data);
-              return "";
-            })
-            .join("\n") || "",
+        content: msg.parts[0].text || "",
       }));
 
       // Execute agent
@@ -80,18 +73,17 @@ export const a2aAgentRoute = registerApiRoute("/a2a/agent/:agentId", {
       ];
 
       // Add tool results as artifacts
-     if (response.toolResults && response.toolResults.length > 0) {
-       artifacts.push({
-         artifactId: randomUUID(),
-         name: "ToolResults",
-         // @ts-ignore
-         parts: response.toolResults.map((result) => ({
-           kind: "data",
-           data: result,
-         })),
-       });
-     }
-
+      if (response.toolResults && response.toolResults.length > 0) {
+        artifacts.push({
+          artifactId: randomUUID(),
+          name: "ToolResults",
+          // @ts-ignore
+          parts: response.toolResults.map((result) => ({
+            kind: "data",
+            data: result,
+          })),
+        });
+      }
 
       // Build conversation history
       const history = [
@@ -129,7 +121,7 @@ export const a2aAgentRoute = registerApiRoute("/a2a/agent/:agentId", {
             },
           },
           artifacts,
-          //   history,
+          history,
           kind: "task",
         },
       });
