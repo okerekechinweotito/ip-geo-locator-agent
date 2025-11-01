@@ -1,5 +1,7 @@
 # IP Geolocation Agent
 
+## The name of this Agent on Telex is - IP Inspector
+
 IPGeoAgent provides precise and context-rich geolocation intelligence for IP addresses. Its primary role is to deliver accurate, structured, and human-readable data about any queried IP address.
 
 ## Getting Started
