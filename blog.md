@@ -290,7 +290,7 @@ export const a2aAgentRoute = registerApiRoute("/a2a/agent/:agentId", {
             },
           },
           artifacts,
-          //   history,
+            history,
           kind: "task",
         },
       });
@@ -337,6 +337,28 @@ https://<your-project-name>.mastra.app/a2a/agent/IPGeoAgent
 ```
 
 Head over to [Telex](https://telex.im) and use this URL to start interacting with your IPGeoAgent.
+
+## Mastra Features Used
+
+In this project, we utilized several key features of Mastra to build and deploy our agent:
+
+- **@mastra/core**: The core library for building agents, including the `Agent` class and `createTool` function.
+- **@mastra/memory**: For providing our agent with memory, allowing it to remember past interactions.
+- **@mastra/libsql**: A specific storage implementation for memory, using a local SQLite database.
+- **@mastra/core/server**: For creating the A2A API route to expose our agent.
+- **Mastra CLI**: For initializing the project and deploying it to Mastra Cloud.
+
+## Step 6: Connect to Telex
+
+Telex is an AI agent platform like Make that allows you to interact with A2A agents. You can also describe it as a slack alternative for education or slack alternative for communities or slack alternative for bootcamps. You can check out their home page [here](https://telex.im/).
+
+To connect your agent to Telex, you'll need the agent's URL. The A2A endpoint for our agent will be:
+
+```
+https://<your-project-name>.mastra.app/a2a/agent/IPGeoAgent
+```
+
+You can interact with the deployed agent [here](https://telex.im/telex-ai-intergration/home/colleagues/019a3f85-771c-7163-a3c5-c61e76cf285b/019a3f85-6251-7162-bff4-6cb4aefc9bdc). This agent takes an IP address and returns geolocation information.
 
 ## Conclusion
 
