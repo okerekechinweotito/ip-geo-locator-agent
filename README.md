@@ -11,7 +11,7 @@ IPGeoAgent provides precise and context-rich geolocation intelligence for IP add
 - Node.js (>=20.9.0)
 - pnpm
 
-### Installation
+### Installation.
 
 1. Clone the repository:
    ```bash
